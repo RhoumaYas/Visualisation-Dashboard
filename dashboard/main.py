@@ -228,7 +228,7 @@ with tab2:
     st.image(os.path.join(BASE_DIR, "data", "accident_count_month.png"))
     st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
     
-    st.image(os.path.join(BASE_DIR, "data", "accident_by_hour.png"))
+    st.image(os.path.join(BASE_DIR, "data", "accidents_by_hour.png"))
     st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
     
     
