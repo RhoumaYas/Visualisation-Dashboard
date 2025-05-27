@@ -92,7 +92,26 @@ def create_map(_geojson, _center_lat, _center_lon, color):
     tooltip={"html": """
             <b>Risk category:</b> {risk_cat}<br>
             <b>Predicted category:</b> {pred}<br>
-            <b>Delta:</b> {delta}             
+            <b>Delta:</b> {delta}<br> 
+            <b>District:</b> {district}<br>
+            <b>Slope mean:</b> {slope_mean}<br>
+            <b>Slope max:</b> {slope_max}<br>
+            <b>Temporegime:</b> {temporegim}<br>
+            <b>Trams:</b> {trams}<br>
+            <b>Degree intersection:</b> {deg_inter}<br>
+            <b>Bicycle lanes:</b> {bicycle_la}<br>
+            <b>Traffic volume:</b> {traf_vol}<br>
+            <b>Crossings:</b> {crossings}<br>
+            <b>Lanes:</b> {lanes}<br>
+            <b>Traffic signals:</b> {traffic_si}<br>
+            <b>Lighting:</b> {lit}<br>
+            <b>Road smoothness:</b> {road_smoot}<br>
+            <b>Train station distance:</b> {train_stat}<br>
+            <b>Office distance:</b> {office_dis}<br>
+            <b>School distance:</b> {school__di}<br>
+            <b>Water distance:</b> {water_dist}<br>
+            <b>Pub/Bar distance:</b> {pub_distan}<br>
+            <b>Bike parking distance:</b> {bikeparkin}           
             """},    
     map_style='light', map_provider='carto')
     
@@ -102,8 +121,8 @@ def create_map(_geojson, _center_lat, _center_lon, color):
 # Load original data
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-shapefile_path = os.path.join(BASE_DIR, "data", "segment_model_final.shp")
-grid_file_path = os.path.join(BASE_DIR, "data", "grid_model_final.shp")
+shapefile_path = os.path.join(BASE_DIR, "data", "segment_model_comb.shp")
+grid_file_path = os.path.join(BASE_DIR, "data", "grid_model_comb.shp")
 
 seg_gdf = load_segments(shapefile_path)
 grid_gdf = load_grid(grid_file_path)
@@ -145,23 +164,72 @@ with tab1:
         
         st.markdown("<div style='margin-bottom: 100px;'></div>", unsafe_allow_html=True)
 
-subcol3, _, subcol4 = st.columns([.4, .2, .4])
-subcol3.image(os.path.join(BASE_DIR, "data", "RocAuc_segment.png"))
-subcol4.image(os.path.join(BASE_DIR, "data", "RocAuc_grid.png"))
+        subcol3, _, subcol4 = st.columns([.4, .2, .4])
+        subcol3.image(os.path.join(BASE_DIR, "data", "RocAuc_segment.png"))
+        subcol4.image(os.path.join(BASE_DIR, "data", "RocAuc_grid.png"))
+        subcol3.image(os.path.join(BASE_DIR, "data", "segment_model_features.jpg"))
+        subcol4.image(os.path.join(BASE_DIR, "data", "grid_model_features.jpg"))
 
-st.markdown("<div style='margin-bottom: 100px;'></div>", unsafe_allow_html=True)
+        st.markdown("<div style='margin-bottom: 100px;'></div>", unsafe_allow_html=True)
 
-st.image(os.path.join(BASE_DIR, "data", "percent_missclassified_per_dist.png"), use_container_width=False)
-st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-st.image(os.path.join(BASE_DIR, "data", "mean_delta_by_district.png"))
+        st.image(os.path.join(BASE_DIR, "data", "percent_missclassified_per_dist.png"), use_container_width=False)
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        st.image(os.path.join(BASE_DIR, "data", "mean_delta_by_district.png"))
 
 with tab2:
     st.header('Visualisation of accident data')
     st.markdown("<div style='margin-bottom: 100px;'></div>", unsafe_allow_html=True)
 
-    st.image(os.path.join(BASE_DIR, "data", "accident_distribution_by_weekday_and_time_heatmap.png"), use_container_width=False)
+    st.image(os.path.join(BASE_DIR, "data", "distribution_of_accident_severity.png"))
     st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
+    st.image(os.path.join(BASE_DIR, "data", "most_common_accident_types.png"))
+    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
+    st.image(os.path.join(BASE_DIR, "data", "severity_vs_accident_type_correlation.png"))
+    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
+    st.image(os.path.join(BASE_DIR, "data", "accidents_per_month.png"))
+    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
+    st.image(os.path.join(BASE_DIR, "data", "accidents_per_weekday.png"))
+    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
+    st.image(os.path.join(BASE_DIR, "data", "severity_by_type_and_weekday.png"))
+    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
+    st.image(os.path.join(BASE_DIR, "data", "accident_distribution_by_weekday_and_time_heatmap.png"))
+    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
     st.image(os.path.join(BASE_DIR, "data", "accidents_per_districts.png"))
     st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
+    st.image(os.path.join(BASE_DIR, "data", "accident_densitiy_tram_distance.png"))
+    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
+    st.image(os.path.join(BASE_DIR, "data", "accident_severity_tram_proximity.png"))
+    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
+    st.image(os.path.join(BASE_DIR, "data", "accidents_by_speedzone.png"))
+    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
+    st.image(os.path.join(BASE_DIR, "data", "avg_accident_speed_limit.png"))
+    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
     st.image(os.path.join(BASE_DIR, "data", "accidents_per_season.png"))
+    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
+    st.image(os.path.join(BASE_DIR, "data", "severity_vs_season_correlation.png"))
+    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
+    st.image(os.path.join(BASE_DIR, "data", "accident_count_year.png"))
+    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
+    st.image(os.path.join(BASE_DIR, "data", "accident_count_month.png"))
+    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
+    st.image(os.path.join(BASE_DIR, "data", "accident_by_hour.png"))
+    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    
+    
     
