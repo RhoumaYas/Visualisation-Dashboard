@@ -144,7 +144,7 @@ with tab1:
 
     geojson, lat, lon = (seg_geojson, seg_center_lat, seg_center_lon) if model == 'Segment based' else (grd_geojson, grd_center_lat, grd_center_lon)
     color_column = {
-        'Actual risk catecory': 'fill_color_rc',
+        'Actual risk category': 'fill_color_rc',
         'Predicted risk category': 'fill_color_pred',
         'Delta': 'fill_color_delta'
     }[view]
