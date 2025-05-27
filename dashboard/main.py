@@ -138,35 +138,30 @@ with tab1:
         st.markdown("<div style='margin-top: 50px;'></div>", unsafe_allow_html=True)
         
         subcol1,_, subcol2 = st.columns([.45,.1,.45])
-        subcol1.image('./data/cm_segment_model.png')
-        subcol2.image('./data/grid_model_confusion_matrices.png')
+    
+        subcol1.image(os.path.join(BASE_DIR, "data", "cm_segment_model.png"))
+        subcol2.image(os.path.join(BASE_DIR, "data", "grid_model_confusion_matrices.png"))
         
         
         st.markdown("<div style='margin-bottom: 100px;'></div>", unsafe_allow_html=True)
-        # st.markdown("<div style='margin-top: 50px;'></div>", unsafe_allow_html=True)
-        subcol3,_, subcol4 = st.columns([.4,.2,.4])
-        subcol3.image('./data/RocAuc_segment.png')
-        subcol4.image('./data/RocAuc_grid.png')
-        
-        st.markdown("<div style='margin-bottom: 100px;'></div>", unsafe_allow_html=True)
-        # st.markdown("<div style='margin-top: 50px;'></div>", unsafe_allow_html=True)
-        
-        
-        st.image('./data/percent_missclassified_per_dist.png', use_container_width=False)
-        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-        st.image('./data/mean_delta_by_district.png')
-    
-    
-    
+
+subcol3, _, subcol4 = st.columns([.4, .2, .4])
+subcol3.image(os.path.join(BASE_DIR, "data", "RocAuc_segment.png"))
+subcol4.image(os.path.join(BASE_DIR, "data", "RocAuc_grid.png"))
+
+st.markdown("<div style='margin-bottom: 100px;'></div>", unsafe_allow_html=True)
+
+st.image(os.path.join(BASE_DIR, "data", "percent_missclassified_per_dist.png"), use_container_width=False)
+st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+st.image(os.path.join(BASE_DIR, "data", "mean_delta_by_district.png"))
+
 with tab2:
     st.header('Visualisation of accident data')
     st.markdown("<div style='margin-bottom: 100px;'></div>", unsafe_allow_html=True)
-        # st.markdown("<div style='margin-top: 50px;'></div>", unsafe_allow_html=True)
-        
-        
-    st.image('./data/accident_distribution_by_weekday_and_time_heatmap.png', use_container_width=False)
+
+    st.image(os.path.join(BASE_DIR, "data", "accident_distribution_by_weekday_and_time_heatmap.png"), use_container_width=False)
     st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    st.image('./data/accidents_per_districts.png')
+    st.image(os.path.join(BASE_DIR, "data", "accidents_per_districts.png"))
     st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    st.image('./data/accidents_per_season.png')
+    st.image(os.path.join(BASE_DIR, "data", "accidents_per_season.png"))
     
