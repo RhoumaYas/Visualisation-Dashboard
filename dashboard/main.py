@@ -178,58 +178,65 @@ with tab1:
 
 with tab2:
     st.header('Visualisation of accident data')
-    st.markdown("<div style='margin-bottom: 100px;'></div>", unsafe_allow_html=True)
+    st.write('The exploratory analysis revealed clear temporal and spatial patterns in the occurrence ofbicycle accidents in Zurich from 2011 until 2024.')
+    
+    with st.expander("Accident severity overview"):
+        st.markdown("<div style='margin-bottom: 100px;'></div>", unsafe_allow_html=True)
 
-    st.image(os.path.join(BASE_DIR, "data", "distribution_of_accident_severity.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        st.image(os.path.join(BASE_DIR, "data", "distribution_of_accident_severity.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        
+        st.image(os.path.join(BASE_DIR, "data", "most_common_accident_types.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        
+        st.image(os.path.join(BASE_DIR, "data", "severity_vs_accident_type_correlation.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        
+    with st.expander("Temporal patterns"):
+        st.image(os.path.join(BASE_DIR, "data", "accidents_per_month.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        
+        st.image(os.path.join(BASE_DIR, "data", "accidents_per_weekday.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        
+        st.image(os.path.join(BASE_DIR, "data", "severity_by_type_and_weekday.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        
+        st.image(os.path.join(BASE_DIR, "data", "accident_distribution_by_weekday_and_time_heatmap.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
     
-    st.image(os.path.join(BASE_DIR, "data", "most_common_accident_types.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    with st.expander("Spatial distribution"):
+        st.image(os.path.join(BASE_DIR, "data", "accidents_per_districts.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        
+        st.image(os.path.join(BASE_DIR, "data", "accident_densitiy_tram_distance.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        
+        st.image(os.path.join(BASE_DIR, "data", "accident_severity_tram_proximity.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        
+        st.image(os.path.join(BASE_DIR, "data", "accidents_by_speedzone.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        
+        st.image(os.path.join(BASE_DIR, "data", "avg_accident_speed_limit.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        
+    with st.expander("Seasonal and weather effects"):
+        st.image(os.path.join(BASE_DIR, "data", "accidents_per_season.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        
+        st.image(os.path.join(BASE_DIR, "data", "severity_vs_season_correlation.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
     
-    st.image(os.path.join(BASE_DIR, "data", "severity_vs_accident_type_correlation.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    
-    st.image(os.path.join(BASE_DIR, "data", "accidents_per_month.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    
-    st.image(os.path.join(BASE_DIR, "data", "accidents_per_weekday.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    
-    st.image(os.path.join(BASE_DIR, "data", "severity_by_type_and_weekday.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    
-    st.image(os.path.join(BASE_DIR, "data", "accident_distribution_by_weekday_and_time_heatmap.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    
-    st.image(os.path.join(BASE_DIR, "data", "accidents_per_districts.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    
-    st.image(os.path.join(BASE_DIR, "data", "accident_densitiy_tram_distance.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    
-    st.image(os.path.join(BASE_DIR, "data", "accident_severity_tram_proximity.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    
-    st.image(os.path.join(BASE_DIR, "data", "accidents_by_speedzone.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    
-    st.image(os.path.join(BASE_DIR, "data", "avg_accident_speed_limit.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    
-    st.image(os.path.join(BASE_DIR, "data", "accidents_per_season.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    
-    st.image(os.path.join(BASE_DIR, "data", "severity_vs_season_correlation.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    
-    st.image(os.path.join(BASE_DIR, "data", "accident_count_year.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    
-    st.image(os.path.join(BASE_DIR, "data", "accident_count_month.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
-    
-    st.image(os.path.join(BASE_DIR, "data", "accidents_by_hour.png"))
-    st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+    with st.expander("Bicycle traffic"): 
+        st.image(os.path.join(BASE_DIR, "data", "accident_count_year.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        
+        st.image(os.path.join(BASE_DIR, "data", "accident_count_month.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
+        
+        st.image(os.path.join(BASE_DIR, "data", "accidents_by_hour.png"))
+        st.markdown("<div style='margin-bottom: 150px;'></div>", unsafe_allow_html=True)
     
     
     
