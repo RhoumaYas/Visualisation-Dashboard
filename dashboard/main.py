@@ -14,14 +14,14 @@ st.set_page_config(layout='wide')
 
 @st.cache_data
 def load_segments():
-    gdf = gpd.read_file('.dashboard/data/segment_model_final.shp') 
+    gdf = gpd.read_file('../data/segment_model_final.shp') 
     gdf['geometry'] = gdf.geometry.simplify(tolerance=0.0001, preserve_topology=True)
 
     return gdf
 
 @st.cache_data
 def load_grid():
-    gdf = gpd.read_file('.dashboard/data/grid_model_final.shp') 
+    gdf = gpd.read_file('../data/grid_model_final.shp') 
     gdf['geometry'] = gdf.geometry.simplify(tolerance=0.0001, preserve_topology=True)
 
     return gdf
