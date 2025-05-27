@@ -90,29 +90,30 @@ def create_map(_geojson, _center_lat, _center_lon, color):
     layers=[polygon_layer],
     initial_view_state=view_state,
     tooltip={"html": """
-            <b>Risk category:</b> {risk_cat}<br>
-            <b>Predicted category:</b> {pred}<br>
-            <b>Delta:</b> {delta}<br> 
-            <b>District:</b> {district}<br>
-            <b>Slope mean:</b> {slope_mean}<br>
-            <b>Slope max:</b> {slope_max}<br>
-            <b>Temporegime:</b> {temporegim}<br>
-            <b>Trams:</b> {trams}<br>
-            <b>Degree intersection:</b> {deg_inter}<br>
-            <b>Bicycle lanes:</b> {bicycle_la}<br>
-            <b>Traffic volume:</b> {traf_vol}<br>
-            <b>Crossings:</b> {crossings}<br>
-            <b>Lanes:</b> {lanes}<br>
-            <b>Traffic signals:</b> {traffic_si}<br>
-            <b>Lighting:</b> {lit}<br>
-            <b>Road smoothness:</b> {road_smoot}<br>
-            <b>Train station distance:</b> {train_stat}<br>
-            <b>Office distance:</b> {office_dis}<br>
-            <b>School distance:</b> {school__di}<br>
-            <b>Water distance:</b> {water_dist}<br>
-            <b>Pub/Bar distance:</b> {pub_distan}<br>
-            <b>Bike parking distance:</b> {bikeparkin}           
-            """},    
+        <b>Risk category:</b> {risk_cat}<br>
+        <b>Predicted category:</b> {pred}<br>
+        <b>Delta:</b> {delta}<br> 
+        <b>District:</b> {district}<br>
+        <b>Slope mean:</b> {slope_mean}<br>
+        <b>Slope max:</b> {slope_max}<br>
+        <b>Temporegime:</b> {temporegim}<br>
+        <b>Trams:</b> {trams}<br>
+        <b>Degree intersection:</b> {deg_inter}<br>
+        <b>Bicycle lanes:</b> {bicycle_la}<br>
+        <b>Traffic volume:</b> {traf_vol}<br>
+        <b>Crossings:</b> {crossings}<br>
+        <b>Lanes:</b> {lanes}<br>
+        <b>Traffic signals:</b> {traffic_si}<br>
+        <b>Lighting:</b> {lit}<br>
+        <b>Road smoothness:</b> {road_smoot}<br>
+        <b>Train station distance:</b> {train_stat}<br>
+        <b>Office distance:</b> {office_dis}<br>
+        <b>School distance:</b> {school__di}<br>
+        <b>Water distance:</b> {water_dist}<br>
+        <b>Pub/Bar distance:</b> {pub_distan}<br>
+        <b>Bike parking distance:</b> {bikeparkin} """,
+        'style': {"font-size": "8px"}
+        },    
     map_style='light', map_provider='carto')
     
     return deck
