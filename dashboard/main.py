@@ -138,7 +138,7 @@ with tab1:
 
     col1, col2 = st.columns(2)
     model = col1.selectbox(label='chose model', options=['Segment based', 'Grid based'])
-    view = col2.selectbox(label='chose view', options=['Actual risk catecory', 'Predicted risk category', 'Delta'])
+    view = col2.selectbox(label='chose view', options=['Actual risk category', 'Predicted risk category', 'Delta'])
 
     selected_poly=None
 
