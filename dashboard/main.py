@@ -3,6 +3,7 @@ import geopandas as gpd
 import pandas as pd 
 import matplotlib as mpl
 import pydeck as pdk
+import os
 
 
 
@@ -13,15 +14,15 @@ st.set_page_config(layout='wide')
 
 
 @st.cache_data
-def load_segments():
-    gdf = gpd.read_file('data/segment_model_final.shp') 
+def load_segments(shapefile_path):
+    gdf = gpd.read_file(shapefile_path) 
     gdf['geometry'] = gdf.geometry.simplify(tolerance=0.0001, preserve_topology=True)
 
     return gdf
 
 @st.cache_data
-def load_grid():
-    gdf = gpd.read_file('data/grid_model_final.shp') 
+def load_grid(shapefile_path):
+    gdf = gpd.read_file(shapefile_path) 
     gdf['geometry'] = gdf.geometry.simplify(tolerance=0.0001, preserve_topology=True)
 
     return gdf
@@ -99,8 +100,13 @@ def create_map(_geojson, _center_lat, _center_lon, color):
 
 
 # Load original data
-seg_gdf = load_segments()
-grid_gdf = load_grid()
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+shapefile_path = os.path.join(BASE_DIR, "data", "segment_model_final.shp")
+grid_file_path = os.path.join(BASE_DIR, "data", "grid_model_final.shp")
+
+seg_gdf = load_segments(shapefile_path)
+grid_gdf = load_grid(grid_file_path)
 seg_geojson, seg_center_lat, seg_center_lon = prep_geodf(seg_gdf)
 grd_geojson, grd_center_lat, grd_center_lon = prep_geodf(grid_gdf)
 
